@@ -1,0 +1,31 @@
+﻿challengesTemplate;playerType;distance;time;segment;reward
+Share an activity of <distance> km;Socializer;2;20;Le grand depart;10
+Run a minimum of <distance> km to reach group goals of <distance> km;Socializer,Philanthropist;2;20;Le grand depart;10
+Run to represent group;Socializer,Philanthropist;2;20;Le grand depart;10
+Upload <segment> with a friend;Socializer;2;20;Le grand depart;10
+Share an activity of <time> minutes;Socializer;2;20;Le grand depart;10
+Run a minimum of <time> minutes of activity to reach the group goal of <time> of activity;Socializer,Philanthropist;2;20;Le grand depart;10
+Run <distance> km and make a donation to charity;Philanthropist;2;20;Le grand depart;10
+Explore this new area: <segment>;Free_Spirit;2;20;Le grand depart;10
+Start a running activity for  <time> minutes;Free_Spirit;2;20;Le grand depart;10
+Revisit <segment> from the other direction;Free_Spirit;2;20;Le grand depart;10
+Explore <distance> km in a new area;Free_Spirit;2;20;Le grand depart;10
+Run <distance> km;Achiever;2;20;Le grand depart;10
+Beat your personal record on <segment>;Achiever;2;20;Le grand depart;10
+Complete <segment> in <time> minutes;Achiever;2;20;Le grand depart;10
+Get the best score on the leaderboard with your friends on <segment>;Achiever,Socializer;2;20;Le grand depart;10
+Share an activity of <distance> km and receive <reward> points;Socializer,Player;2;20;Le grand depart;10
+Run a minimum of <distance> km to reach group goals of <distance> km and receive <reward> points;Socializer,Philanthropist,Player;2;20;Le grand depart;10
+Run to represent group and receive <reward> points;Socializer,Philanthropist,Player;2;20;Le grand depart;10
+Upload <segment> with a friend and receive <reward> points;Socializer,Player;2;20;Le grand depart;10
+Share an activity of <time> minutes and receive <reward> points;Socializer,Player;2;20;Le grand depart;10
+Run a minimum of <time> minutes of activity to reach the group goal of <time> of activity and receive <reward> points;Socializer,Philanthropist,Player;2;20;Le grand depart;10
+Run <distance> km and make a donation to charity and receive <reward> points;Philanthropist,Player;2;20;Le grand depart;10
+Explore this new area: <segment> and receive <reward> points;Free_Spirit,Player;2;20;Le grand depart;10
+Start a running activity for  <time> minutes and receive <reward> points;Free_Spirit,Player;2;20;Le grand depart;10
+Revisit <segment> from the other direction and receive <reward> points;Free_Spirit,Player;2;20;Le grand depart;10
+Explore <distance> km in a new area and receive <reward> points;Free_Spirit,Player;2;20;Le grand depart;10
+Run <distance> km and receive <reward> points;Achiever,Player;2;20;Le grand depart;10
+Beat your personal record on <segment> and receive <reward> points;Achiever,Player;2;20;Le grand depart;10
+Complete <segment> in <time> minutes and receive <reward> points;Achiever,Player;2;20;Le grand depart;10
+Get the best score on the leaderboard with your friends on <segment> receive <reward> points;Achiever,Socializer,Player;2;20;Le grand depart;10
