@@ -1,0 +1,16 @@
+index,challengesTemplate,distance,time,segment,reward,playerType_Achiever,playerType_Socializer,playerType_Philanthropist,playerType_Free_Spirit,playerType_Player,chosen
+13,Complete Speelhuislaan middenspoor richting watertoren in 20 minutes,2.0,20.0,Speelhuislaan middenspoor richting watertoren,10,1,0,0,0,0,0
+16,Run a minimum of 2 km to reach group goals of 2 km and receive 10 points,2.0,20.0,Le grand depart,10,0,1,1,0,1,0
+8,Start a running activity for  20 minutes,2.0,20.0,Le grand depart,10,0,0,0,1,0,1
+6,Run 2.5 km and make a donation to charity,2.5,20.0,Le grand depart,10,0,0,1,0,0,1
+12,Beat your personal record on Sintelbaan KMA,2.0,20.0,Sintelbaan KMA,10,1,0,0,0,0,0
+14,Get the best score on the leaderboard with your friends on Sintelbaan KMA,2.0,20.0,Sintelbaan KMA,10,1,1,0,0,0,0
+0,Share an activity of 2.6 km,2.6,20.0,Le grand depart,10,0,1,0,0,0,0
+7,Explore this new area: Eerste gedeelte Busbaan,2.25,20.0,Eerste gedeelte Busbaan,10,0,0,0,1,0,1
+4,Share an activity of 23 minutes,2.25,23.0,Le grand depart,10,0,1,0,0,0,0
+8,Start a running activity for  23 minutes,2.25,23.0,Le grand depart,10,0,0,0,1,0,0
+13,Complete Onder het spoor in 23 minutes,2.25,23.0,Onder het spoor,10,1,0,0,0,0,0
+4,Share an activity of 23 minutes,2.25,23.0,Le grand depart,10,0,1,0,0,0,1
+13,Complete wilhelminasingel in 24 minutes,2.25,24,wilhelminasingel,10,1,0,0,0,0,1
+9,Revisit Eerste gedeelte Busbaan from the other direction,2.25,20.75,Eerste gedeelte Busbaan,10,0,0,0,1,0,0
+8,Start a running activity for  26 minutes,2.25,26,Le grand depart,10,0,0,0,1,0,0
