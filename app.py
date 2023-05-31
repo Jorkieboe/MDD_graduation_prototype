@@ -1,7 +1,10 @@
 import numpy as np
 import pandas as pd
 import streamlit as st
+import requests
 from math import floor
+from math import ceil
+import json
 
 if 'init' not in st.session_state:
     st.session_state['init'] = True
@@ -9,8 +12,7 @@ if 'init' not in st.session_state:
 if 'df' not in st.session_state:
     st.session_state['df'] = 1
 
-
-# get challenges
+# get challenges 
 df_challenges = pd.read_csv('Challenge_template.csv', delimiter=';')
 df_challenges['playerType'] = df_challenges['playerType'].str.split(',')
 df_challenges = df_challenges.explode('playerType').reset_index()
@@ -24,12 +26,13 @@ if st.session_state['init'] == True:
 else:
     df = st.session_state['df']
 
+# recommend a player type with a epsilon greedy algorithm
 def epsilon_greedy_policy(df, epsilon=0.10):
     types = ['playerType_Achiever', 'playerType_Socializer','playerType_Philanthropist', 'playerType_Free_Spirit', 'playerType_Player']
     values = [df['playerType_Achiever'].count(), df['playerType_Socializer'].count(),df['playerType_Philanthropist'].count(), df['playerType_Free_Spirit'].count(), df['playerType_Player'].count()]
     df2 = pd.DataFrame(values, index=types, columns=['count']).reset_index()
     df2['count'] += 1
-    # draw a 0 or 1 from a binomial distribution, where epsilon chance to explore
+    # draw a 0 or 1 from a binomial distribution, where epsilon % chance to pick one.
     explore = np.random.binomial(1, epsilon)
     # if explore: choose randomly three different player types
     if explore == 1 or df2['count'].sum() < 6:
@@ -56,14 +59,11 @@ def epsilon_greedy_policy(df, epsilon=0.10):
 recs, method = epsilon_greedy_policy(df)
 recs['index'] = recs['index'].astype('string')
 
-# pick a challenges related to the type
 def getChallenges():
     first = True
     for index, type in recs.iterrows():
         second = True
-        # get all the types per challenges
         for index2, challenge in df_challenges.iterrows():
-            print(challenge)
             if challenge[type['index']] == 1:
                 if(second == False):
                     challengeDF = challenge.to_frame().T
@@ -71,7 +71,6 @@ def getChallenges():
                 else:
                     challengesPerType = challenge.to_frame().T
                     second = False
-        # pick one of the type
         sample = challengesPerType.sample(n=1)
         if first == False:
             sampleDF = sample
@@ -84,7 +83,53 @@ def getChallenges():
 RecChallenges = getChallenges()
 RecChallenges = RecChallenges.reset_index(drop=True)
 
-# replace the variables in the challenges
+
+def changeChallengeParameters():
+    for index, challenge in RecChallenges.iterrows():
+        if '<segment>' in challenge['challengesTemplate']:
+            # location = [51.575283, 4.737244, 51.600514, 4.812119]
+            # BaseUrl = 'https://www.strava.com/api/v3/segments/explore?'
+            # response = requests.get(BaseUrl, params={'bounds': ','.join(str(b) for b in location), 'activity_type': 'running'}, headers={'Authorization': 'Bearer 844e0605ec502d933c57550480ee63630c2d83e7'})
+            # data = response.json() 
+            with open('segments.json', 'r') as openfile:
+                data = json.load(openfile)
+            segmentName = ''
+            segmentDistance = 0
+            for segment in data:
+                newSegment = True
+                for pastsegments in df['segment']:
+                    if segment['name'] == pastsegments:
+                        newSegment = False
+                    else:
+                        segmentName = segment['name']
+                        segmentDistance = segment['distance']
+                if newSegment == True:
+                    break
+            challenge['segment'] = segmentName
+            challenge['distance'] = segmentDistance
+        if '<distance>' in challenge['challengesTemplate']:
+            pastdistances = []
+            for pastdistance in df['distance']:
+                pastdistances.append(pastdistance)
+            if len(pastdistances) > 0:
+                avg_distance = sum(pastdistances) / len(pastdistances)
+                increase_percentage = 0.05  
+                increase_distance = avg_distance * increase_percentage
+                new_distance = avg_distance + increase_distance
+                challenge['distance'] = new_distance
+        if '<time>' in challenge['challengesTemplate']:
+            pasttimeList = []
+            for pasttime in df['distance']:
+                pasttimeList.append(pasttime)
+            if len(pasttimeList) > 0:
+                avg_time = sum(pasttimeList) / len(pasttimeList)
+                increase_percentage = 0.05  # increase the distance by 5% of the average distance
+                increase_time = avg_time * increase_percentage
+                new_time = avg_time + increase_time
+                challenge['time'] = ceil(new_time)
+
+changeChallengeParameters()
+            
 for index, challenge in RecChallenges.iterrows():
     string = challenge['challengesTemplate']
     for column in challenge.index:
@@ -92,22 +137,20 @@ for index, challenge in RecChallenges.iterrows():
             string = string.replace('<' + column + '>', str(challenge[column]))
     RecChallenges.loc[index, 'challengesTemplate'] = string
 
+
 def chalOne(df):
     tempDF = RecChallenges.iloc[0].to_frame().T
     df = pd.concat([df, tempDF]).reset_index(drop=True)
-    print(df)
     st.session_state['df'] = df
 
 def chalTwo(df):
     tempDF = RecChallenges.iloc[1].to_frame().T
     df = pd.concat([df, tempDF]).reset_index(drop=True)
-    print(df)
     st.session_state['df'] = df
 
 def chalThree(df):
     tempDF = RecChallenges.iloc[2].to_frame().T
     df = pd.concat([df, tempDF]).reset_index(drop=True)
-    print(df)
     st.session_state['df'] = df
 
 
