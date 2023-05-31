@@ -1,0 +1,82 @@
+button.css-b3z5c9.edgvbvh10 {
+    background: rgba(217, 217, 217, 0.25);
+    border: 3px solid #F7BF45;
+    border-radius: 20px;
+    color: #000000;
+    font-weight: bold;
+    max-width: 500px;
+    width: 80%;
+    font-size: 12px;
+    text-align: left;
+    margin: 0px;
+    justify-content: flex-start;
+    padding-bottom: 50px;
+    padding-right: 20%;
+    margin-bottom: 10px;
+
+}
+
+button.css-b3z5c9.edgvbvh10:hover {
+    background: rgba(217, 217, 217, 0.25);
+    border: 3spx solid #F7BF45;
+    border-radius: 20px;
+    color: #000000;
+    font-weight: bold;
+    max-width: 500px;
+    width: 80%;
+    font-size: 12px;
+    text-align: left;
+    margin: 0px;
+    justify-content: flex-start;
+    padding-bottom: 50px;
+    padding-right: 20%;
+    margin-bottom: 10px;
+
+}
+
+button.css-b3z5c9.edgvbvh10:active{
+    border: 3px solid #F7BF45;
+}
+
+
+div.css-1y4p8pa.egzxvld4{
+    background-color: #ffffff;
+    text-align: center;
+    padding: 50px, 0%;
+    width: 500px;
+    height: 1334px;
+}
+
+span.css-10trblm.e16nr0p30{
+    color: black;
+    font-weight: bold;
+    font-size:48px;
+}
+
+div.css-x78sv8.e16nr0p34{
+    color: #01328C;
+    font-size:16px;
+}
+
+#pick-a-challenge{
+    padding: 0px;
+}
+
+div.css-zt5igj.e16nr0p33{
+    padding:0
+}
+
+
+div.css-1wncz92.e16nr0p34{
+    color: #01328C;
+    align-self: flex-end;
+    margin-bottom: 5%;
+}
+
+div.css-7om50g.e1tzin5v{
+    height: 100%;
+    flex-grow: 4;
+}
+.stButton{
+    text-align: center;
+}
