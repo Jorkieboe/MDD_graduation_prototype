@@ -43,12 +43,6 @@ else:
 # reinforment learning function using Thompson samling algorithm
 def thompson_policy(df, df_score, initial):
     # create two arrays: rewards are the total rewards per player type and count is the amount of times that the types is recommended
-    print('he')
-    print('he')
-    print('he')
-    print('he')
-
-    print(df_score.columns)
     reward = [df_score['playerType_Achiever'].sum(), df_score['playerType_Socializer'].sum(),df_score['playerType_Philanthropist'].sum(), df_score['playerType_Free_Spirit'].sum(), df_score['playerType_Player'].sum()]
     count = [df['playerType_Achiever'].sum(), df['playerType_Socializer'].sum(),df['playerType_Philanthropist'].sum(), df['playerType_Free_Spirit'].sum(), df['playerType_Player'].sum()]
     df2 = pd.DataFrame(count, index=st.session_state['typelist'], columns=['count']).reset_index()
